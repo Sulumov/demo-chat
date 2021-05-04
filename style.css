@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  background: #eee;
+}
+
+.wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat {
+  /* Edit this styles */
+  width: 400px;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  background-image: url("https://drasler.ru/wp-content/uploads/2019/05/%D0%A4%D0%BE%D0%BD-%D0%BD%D0%B0-%D0%92%D0%B0%D1%82%D1%81%D0%B0%D0%BF-%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B8-%D0%B8-%D0%BE%D0%B1%D0%BE%D0%B8-8.jpg");
+  background-size: cover;
+  /* background-attachment: fixed; */
+  animation: box .3s ease-in-out;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  scrollbar-width: none;
+  /* Edit this styles */
+}
+
+.chat::-webkit-scrollbar {
+  width: 0;
+}
+
+
+
+.chat-wrap {
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  user-select: none;
+  padding: 10px 10px 30px;
+}
+
+.chat-wrap__box {
+  padding: 5px 10px;
+  display: flex;
+  align-items: flex-start;
+  animation: box .3s ease-in-out;
+  transition: .1s linear;
+}
+
+.chat-wrap__box--overflow {
+    transform: translateY(-10px);
+}
+
+@keyframes box {
+  from {
+    transform: translateY(+10px);
+    opacity: 0;
+
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.me {
+  justify-content: flex-end;
+}
+
+.interlocutor {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.chat-wrap__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ccc;
+}
+
+.chat-wrap__avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.interlocutor__avatar {
+  margin-right: 5px;
+}
+
+.chat-wrap__text {
+  max-width: 70%;
+  border-radius: 10px;
+  padding: 15px 15px;
+  transition: .1s ease-in;
+}
+
+.chat-wrap__box:active 
+.chat-wrap__text {
+    transform: translateX(-5px);
+    border-radius: 10px;
+}
+
+.interlocutor__text {
+  border-top-left-radius: 0;
+  background: #eee;
+}
+
+.chat-wrap__box:active  .interlocutor__text {
+    transform: translateX(5px);
+}
+
+.me__text {
+  border-top-right-radius: 0;
+  background: rgb(104, 175, 255);
+  color: #fff;
+}
+
+@media (max-width: 410px) {
+  .chat {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 360px) {
+  .chat-wrap__avatar {
+    width: 36px;
+    height: 36px;
+  }
+
+  .chat-wrap__text {
+    max-width: calc(100% - 41px);
+  }
+
+  .me__text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 320px) {}
